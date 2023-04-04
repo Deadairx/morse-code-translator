@@ -9,7 +9,7 @@ fn main() {
 
     let mut morse_code_output = String::new();
 
-    for c in input.chars() {
+    for c in input.to_lowercase().chars() {
         morse_code_output.push_str(get_morse_for_char(&c));
     }
 
