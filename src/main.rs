@@ -7,11 +7,12 @@ fn main() {
 
     let input = matches.get_one::<String>("INPUT").unwrap();
 
-    let mut morse_code_output = String::new();
-
-    for c in input.to_lowercase().chars() {
-        morse_code_output.push_str(get_morse_for_char(&c));
-    }
+    let morse_code_output = input
+        .to_lowercase()
+        .chars()
+        .map(|c| get_morse_for_char(&c).to_string())
+        .collect::<Vec<_>>()
+        .join(" ");
 
     println!("{}", morse_code_output);
 }
